@@ -44,9 +44,14 @@ namespace MyShop.WebUI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IRepository<Product>, DataAccess.InMemory.InMemoryRepository<Product>>();
-            container.RegisterType<IRepository<ProductCategory>, DataAccess.InMemory.InMemoryRepository<ProductCategory>>();
 
+            //InMemory Repos
+            //container.RegisterType<IRepository<Product>, DataAccess.InMemory.InMemoryRepository<Product>>();
+            //container.RegisterType<IRepository<ProductCategory>, DataAccess.InMemory.InMemoryRepository<ProductCategory>>();
+
+            //SQL Repos
+            container.RegisterType<IRepository<Product>, DataAccess.SQL.SQLRepository<Product>>();
+            container.RegisterType<IRepository<ProductCategory>, DataAccess.SQL.SQLRepository<ProductCategory>>();
         }
     }
 }
