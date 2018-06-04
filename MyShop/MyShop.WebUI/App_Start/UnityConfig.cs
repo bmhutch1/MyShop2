@@ -1,5 +1,6 @@
 using MyShop.Core.Contracts;
 using MyShop.Core.Models;
+using MyShop.Services;
 using System;
 
 using Unity;
@@ -52,6 +53,9 @@ namespace MyShop.WebUI
             //SQL Repos
             container.RegisterType<IRepository<Product>, DataAccess.SQL.SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, DataAccess.SQL.SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Cart>, DataAccess.SQL.SQLRepository<Cart>>();
+            container.RegisterType<IRepository<CartItem>, DataAccess.SQL.SQLRepository<CartItem>>();
+            container.RegisterType<ICartService, CartService>();
         }
     }
 }
